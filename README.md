@@ -13,4 +13,4 @@ There are several ways to run a Spring Boot application on your local machine. O
 
 ## License
 
-<p> MIT License. Please see LICENSE for details. </p>
+<p> MIT License. Please see <a href="https://github.com/EduardoAcacio/CursoMC/blob/master/LICENSE">LICENSE</a> for details. </p>

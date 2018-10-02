@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:remove="all">order confirmation</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div>
+<h1>
+pedido número: <span th:text="${pedido.id}"> </span>
+</h1>
+<p>
+instante: <span
+th:text="${#dates.format(pedido.instante, 'dd/mm/yyyy hh:mm')}"></span>
+</p>
+<p>
+cliente: <span th:text="${pedido.cliente.nome}"></span>
+</p>
+<p>
+situação do pagamento: <span
+th:text="${pedido.pagamento.estado.descricao}"></span>
+</p>
+<h3>detalhes do pedido:</h3>
+<table border="1">
+<tr>
+<th>produto</th>
+<th>quantidade</th>
+<th>preço unitário</th>
+<th>subtotal</th>
+</tr>
+<tr th:each="item : ${pedido.itens}">
+<td th:text="${item.produto.nome}">nome</td>
+<td th:text="${item.quantidade}">quantidade</td>
+<td th:text="${#numbers.formatdecimal(item.preco, 0, 'point', 2,
+'comma')}">preco</td>
+<td th:text="${#numbers.formatdecimal(item.subtotal, 0, 'point', 2,
+'comma')}">subtotal</td>
+</tr>
+</table>
+<p>
+valor total: <span th:text="${#numbers.formatdecimal(pedido.valortotal, 0,
+'point', 2, 'comma')}"></span>
+</p>
+</div>
+</body>
+</html>
